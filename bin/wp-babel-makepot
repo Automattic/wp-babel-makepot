@@ -6,6 +6,7 @@
  * External dependencies.
  */
 const program = require( 'commander' );
+const glob = require( 'glob' );
 
 /**
  * Internal dependencies.
@@ -15,7 +16,7 @@ const version = require( '../package.json' ).version;
 
 program
 	.version( version )
-	.action( ( command, files ) => {
-		files.forEach( makePot );
+	.action( ( command, [ files ] ) => {
+		glob.sync( files ).forEach( makePot );
 	} )
 	.parse( process.argv );

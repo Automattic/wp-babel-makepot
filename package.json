@@ -19,6 +19,7 @@
     "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
-    "commander": "^4.1.1"
+    "commander": "^4.1.1",
+    "glob": "^7.1.6"
   }
 }
