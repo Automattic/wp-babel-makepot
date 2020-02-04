@@ -3,8 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "wp-babel-makepot": "./bin/wp-babel-makepot"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "./bin/wp-babel-makepot",
+    "concat": "find ./build/*.pot | msgcat -f- -o ./build/bundle-strings.pot"
   },
   "author": "",
   "license": "ISC",
@@ -12,8 +16,9 @@
     "@automattic/babel-plugin-i18n-calypso": "^1.0.3",
     "@babel/cli": "^7.8.3",
     "@babel/core": "^7.8.3",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
     "@babel/preset-env": "^7.8.3",
     "@babel/preset-react": "^7.8.3",
-    "@babel/plugin-proposal-class-properties": "^7.8.3"
+    "commander": "^4.1.1"
   }
 }

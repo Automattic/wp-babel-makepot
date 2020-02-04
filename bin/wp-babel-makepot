@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+'use strict';
+
+/**
+ * External dependencies.
+ */
+const program = require( 'commander' );
+
+/**
+ * Internal dependencies.
+ */
+const makePot = require( '../index' );
+const version = require( '../package.json' ).version;
+
+program
+	.version( version )
+	.action( ( command, files ) => {
+		files.forEach( makePot );
+	} )
+	.parse( process.argv );
