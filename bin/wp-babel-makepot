@@ -16,7 +16,11 @@ const version = require( '../package.json' ).version;
 
 program
 	.version( version )
+	.option( '-i, --ignore <type>', 'add pattern to exclude matches' )
 	.action( ( command, [ files ] ) => {
-		glob.sync( files ).forEach( makePot );
+		const ignore = program.ignore && program.ignore.split( ',' );
+
+		glob.sync( files, { ignore } ).forEach( makePot );
 	} )
 	.parse( process.argv );
+
