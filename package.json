@@ -8,7 +8,8 @@
   },
   "scripts": {
     "start": "./bin/wp-babel-makepot",
-    "concat": "find ./build -name '*.pot' | msgcat -f- -o ./build/bundle-strings.pot"
+    "concat": "find ./build -name '*.pot' | msgcat -f- -o ./build/bundle-strings.pot",
+    "sanitize-pot": "sed -i '' '/#-#-#-#-#/d' build/bundle-strings.pot"
   },
   "author": "",
   "license": "ISC",
