@@ -20,4 +20,4 @@ RUN npm install
 VOLUME /src /build
 
 # Entrypoint runs wp-babel-makepot with required params
-ENTRYPOINT npm start "src/**/*.js{,x}" -- --ignore "**/node_modules/**,**/*.spec.js,**/*.test.js" && npm run concat
+ENTRYPOINT npm start "src/**/*.js{,x}" -- --ignore "**/node_modules/**,**/*.spec.js,**/*.test.js" && npm run concat && npm run sanitize-pot
