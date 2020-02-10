@@ -20,7 +20,7 @@ program
 	.action( ( command, [ files ] ) => {
 		const ignore = program.ignore && program.ignore.split( ',' );
 
-		glob.sync( files, { ignore } ).forEach( makePot );
+		glob.sync( files, { nodir: true, ignore } ).forEach( makePot );
 	} )
 	.parse( process.argv );
 
