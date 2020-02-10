@@ -9,5 +9,9 @@ const babel = require( '@babel/core' );
 const reactPreset = require( './presets' ).react;
 
 module.exports = filepath => {
-	return babel.transformFileSync( filepath, reactPreset );
+	try {
+		return babel.transformFileSync( filepath, reactPreset );
+	} catch ( error ) {
+		console.error( filepath, error );
+	}
 };
