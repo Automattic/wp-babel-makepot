@@ -12,15 +12,32 @@ const glob = require( 'glob' );
  * Internal dependencies.
  */
 const makePot = require( '../index' );
+const presets = require( '../presets' );
 const version = require( '../package.json' ).version;
+
+const presetsKeys = Object.keys( presets );
 
 program
 	.version( version )
-	.option( '-i, --ignore <type>', 'add pattern to exclude matches' )
+	.option(
+		'-p, --preset <type>',
+		`Set babel preset. Available options: ${ presetsKeys.join( ', ' ) }`,
+		'react'
+	)
+	.option( '-i, --ignore <type>', 'Add pattern to exclude matches' )
 	.action( ( command, [ files ] ) => {
+		if ( ! presetsKeys.includes( program.preset ) ) {
+			console.log(
+				`Invalid babel preset. Please use any of available options: ${ presetsKeys.join(
+					', '
+				) }`
+			);
+
+			return;
+		}
+
 		const ignore = program.ignore && program.ignore.split( ',' );
 
 		glob.sync( files, { nodir: true, ignore } ).forEach( makePot );
 	} )
 	.parse( process.argv );
-
