@@ -13,7 +13,8 @@ RUN mkdir /build
 COPY ./package.json /
 COPY ./package-lock.json /
 COPY ./index.js /
-COPY ./bin/wp-babel-makepot /bin/wp-babel-makepot
+COPY ./presets/ /presets/
+COPY ./bin/ /bin/
 RUN npm install
 
 # /src is user code lives, /build is pot file output
