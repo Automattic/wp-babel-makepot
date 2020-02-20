@@ -23,7 +23,7 @@ program
 	.option(
 		'-p, --preset <type>',
 		`Set babel preset. Available options: ${ presetsKeys.join( ', ' ) }`,
-		'react'
+		'default'
 	)
 	.option( '-i, --ignore <type>', 'Add pattern to exclude matches' )
 	.action( ( command, [ files ] ) => {

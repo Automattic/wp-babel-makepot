@@ -1,7 +1,7 @@
 /**
  * Internal dependencies.
  */
-const reactPreset = require( './react-preset' );
+const defaultPreset = require( './default' );
 
 /**
  * Extend babel base options.
@@ -27,7 +27,7 @@ const extendBaseOptions = ( { presets = [], plugins = [], ...rest } ) => ( {
 } );
 
 const presets = {
-	react: extendBaseOptions( reactPreset ),
+	default: extendBaseOptions( defaultPreset ),
 };
 
 module.exports = presets;
