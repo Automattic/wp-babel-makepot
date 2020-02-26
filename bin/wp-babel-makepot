@@ -26,8 +26,8 @@ program
 		`Set babel preset. Available options: ${ presetsKeys.join( ', ' ) }`,
 		'default'
 	)
+	.option( '-b, --base <type>', 'Set a directory that will be used as a base for the relative file path references in comments' )
 	.option( '-i, --ignore <type>', 'Add pattern to exclude matches' )
-	.option( '-c, --cwd <type>', 'Change the current working directory of the process' )
 	.action( ( command, [ files ] ) => {
 		if ( ! presetsKeys.includes( program.preset ) ) {
 			console.log(
@@ -37,17 +37,12 @@ program
 			return;
 		}
 
-		const { cwd } = program;
-
-		// Change current working directory of the process
-		if ( cwd ) {
-			process.chdir( cwd );
-		}
-
 		// Replace `~` with actual home directory as glob can't use it.
 		const filesGlob = files.replace( /^~/, os.homedir() );
 		const ignore = program.ignore && program.ignore.split( ',' );
 
-		glob.sync( filesGlob, { nodir: true, ignore } ).forEach( makePot );
+		const { base } = program;
+
+		glob.sync( filesGlob, { nodir: true, ignore } ).forEach( (filepath) => makePot(filepath, { base }) );
 	} )
 	.parse( process.argv );
