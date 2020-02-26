@@ -6,6 +6,7 @@
  * External dependencies.
  */
 const program = require( 'commander' );
+const process = require( 'process' );
 const glob = require( 'glob' );
 const os = require( 'os' );
 
@@ -26,6 +27,7 @@ program
 		'default'
 	)
 	.option( '-i, --ignore <type>', 'Add pattern to exclude matches' )
+	.option( '-c, --cwd <type>', 'Change the current working directory of the process' )
 	.action( ( command, [ files ] ) => {
 		if ( ! presetsKeys.includes( program.preset ) ) {
 			console.log(
@@ -33,6 +35,13 @@ program
 			);
 
 			return;
+		}
+
+		const { cwd } = program;
+
+		// Change current working directory of the process
+		if ( cwd ) {
+			process.chdir( cwd );
 		}
 
 		// Replace `~` with actual home directory as glob can't use it.
