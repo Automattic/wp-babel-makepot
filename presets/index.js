@@ -4,7 +4,7 @@
 const path = require( 'path' );
 
 /**
- * Internal dependencies.
+ * Internal dependencies
  */
 const defaultPreset = require( './default' );
 

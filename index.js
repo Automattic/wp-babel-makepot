@@ -1,10 +1,10 @@
 /**
- * External dependencies.
+ * External dependencies
  */
 const babel = require( '@babel/core' );
 
 /**
- * Internal dependencies.
+ * Internal dependencies
  */
 const defaultPreset = require( './presets' ).default;
 
