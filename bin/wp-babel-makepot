@@ -25,7 +25,7 @@ program
 		'-b, --base <type>',
 		'Set a directory that will be used as a base for the relative file path references in comments'
 	)
-	.option( '-d, --dir <type>', 'Change output directory.', 'build/' )
+	.option( '-d, --dir <type>', 'Change output directory.', value => value.replace(/\/?$/, '/'), 'build/' )
 	.option( '-i, --ignore <type>', 'Add pattern to exclude matches' )
 	.option(
 		'-p, --preset <type>',
