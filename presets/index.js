@@ -1,4 +1,9 @@
 /**
+ * External dependencies
+ */
+const path = require( 'path' );
+
+/**
  * Internal dependencies.
  */
 const defaultPreset = require( './default' );
@@ -15,6 +20,7 @@ const extendBaseOptions = ( { presets = [], plugins = [], ...rest } ) => ( {
 	code: false,
 	ast: true,
 	presets,
+	cwd: path.resolve( __dirname, '..' ),
 	plugins: [
 		...plugins,
 		[
