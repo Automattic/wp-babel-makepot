@@ -32,7 +32,7 @@ program
 		`Set babel preset. Available options: ${ presetsKeys.join( ', ' ) }`,
 		'default'
 	)
-	.action( ( command, [ files ] ) => {
+	.action( ( command, [ files = '.' ] = [] ) => {
 		if ( ! presetsKeys.includes( program.preset ) ) {
 			console.log(
 				`Invalid babel preset. Please use any of available options: ${ presetsKeys.join( ', ' ) }`
