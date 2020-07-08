@@ -16,6 +16,7 @@ const os = require( 'os' );
 const makePot = require( '../index' );
 const presets = require( '../presets' );
 const concatPot = require( '../utils/concat-pot' );
+const sanitizePot = require( '../utils/sanitize-pot' );
 const version = require( '../package.json' ).version;
 
 const presetsKeys = Object.keys( presets );
@@ -67,6 +68,7 @@ program
 
 		if ( output && output !== 'false' ) {
 			concatPot( dir, output );
+			sanitizePot( output );
 		}
 	} )
 	.parse( process.argv );
