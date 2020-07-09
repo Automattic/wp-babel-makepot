@@ -42,7 +42,7 @@ program
 	.option(
 		'-o, --output <type>',
 		'Set the filename for POT concatenation output. Set `false` to disable concatenation.',
-		'build/calypso-strings.pot'
+		'build/bundle-strings.pot'
 	)
 	.action( ( command, [ files = '.' ] = [] ) => {
 		if ( ! presetsKeys.includes( program.preset ) ) {
