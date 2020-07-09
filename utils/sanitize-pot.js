@@ -1,8 +1,10 @@
 /**
  * External dependencies
  */
-const execSync = require( 'child_process' ).execSync;
+const fs = require( 'fs' );
 
 module.exports = output => {
-	execSync( `sed -i.bak '/#-#-#-#-#/d' ${ output }` );
+	const content = fs.readFileSync( output, 'utf8' );
+
+	fs.writeFileSync( output, content.replace( /.*#-#-#-#-#.*\n/gm, '' ) );
 };
