@@ -7,9 +7,7 @@
     "wp-babel-makepot": "./bin/wp-babel-makepot"
   },
   "scripts": {
-    "start": "./bin/wp-babel-makepot",
-    "concat": "find ./build -name '*.pot' | msgcat -f- --no-wrap -o ./build/bundle-strings.pot",
-    "sanitize-pot": "sed -i.bak '/#-#-#-#-#/d' ./build/bundle-strings.pot"
+    "start": "./bin/wp-babel-makepot"
   },
   "author": "",
   "license": "ISC",
