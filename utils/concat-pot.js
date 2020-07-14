@@ -34,10 +34,8 @@ module.exports = ( dir, output ) => {
 	const potGlob = path.resolve( dir, '*.pot' );
 	const potFiles = glob.sync( potGlob, { nodir: true, absolute: true } );
 
-	console.time( 'parseStart' );
 	const concatPOT = potFiles.reduce( ( acc, filePath ) => {
 		return mergeDeep( acc, po.parse( fs.readFileSync( filePath, 'utf8' ) ) );
 	}, {} );
 	fs.writeFileSync( output, po.compile( concatPOT ) );
-	console.timeEnd( 'parseStart' );
 };
