@@ -1,8 +1,5 @@
 FROM node:13.7-stretch-slim
 
-# install gettext package
-RUN apt update && apt install -y gettext
-
 # /src is where we expect source javascript to run our babel config over
 RUN mkdir /src
 

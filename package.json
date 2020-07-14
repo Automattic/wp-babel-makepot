@@ -20,6 +20,8 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/preset-typescript": "^7.10.4",
     "commander": "^5.1.0",
-    "glob": "^7.1.6"
+    "gettext-parser": "^4.0.3",
+    "glob": "^7.1.6",
+    "lodash.mergewith": "^4.6.2"
   }
 }
