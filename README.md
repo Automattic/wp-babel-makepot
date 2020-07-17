@@ -20,8 +20,5 @@ Locally (without docker)
 ```
 cd wp-babel-makepot
 npm install
-npm start "some/src/**/*.js{,x}" -- --ignore "**/node_modules/**,**/*.spec.js,**/*.test.js"
-npm run concat
-npm run sanitize-pot
-# pot files will be droped in ./build per @automattic/babel-plugin-i18n-calypso defaults -- todo: can we specify this in cli params?
+npm start "some/src/**/*.js{,x}" -- --ignore "**/node_modules/**,**/*.spec.js,**/*.test.js" --output "./strings.pot"
 ```
