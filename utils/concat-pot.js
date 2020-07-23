@@ -30,6 +30,11 @@ const mergeDeep = ( left, right, key ) => {
 	return right || left;
 };
 
+const WARNING_COMMENT_START = '# THIS IS A GENERATED FILE. DO NOT EDIT DIRECTLY.\n\n';
+const WARNING_COMMENT_END = '\n\n# THIS IS THE END OF THE GENERATED FILE.';
+const addWarningComments = fileContent =>
+	''.concat( WARNING_COMMENT_START, fileContent, WARNING_COMMENT_END );
+
 module.exports = ( dir, output ) => {
 	const potGlob = path.resolve( dir, '*.pot' );
 	const potFiles = glob.sync( potGlob, { nodir: true, absolute: true } );
@@ -37,5 +42,6 @@ module.exports = ( dir, output ) => {
 	const concatPOT = potFiles.reduce( ( acc, filePath ) => {
 		return mergeDeep( acc, po.parse( fs.readFileSync( filePath, 'utf8' ) ) );
 	}, {} );
-	fs.writeFileSync( output, po.compile( concatPOT ) );
+	const potFileContent = addWarningComments( po.compile( concatPOT ) );
+	fs.writeFileSync( output, potFileContent );
 };
