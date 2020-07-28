@@ -1,4 +1,4 @@
-FROM node:13.7-stretch-slim
+FROM node:12.18.0
 
 # /src is where we expect source javascript to run our babel config over
 RUN mkdir /src
