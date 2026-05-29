@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@automattic/babel-plugin-i18n-calypso": "^1.1.0",
+    "@automattic/babel-plugin-i18n-calypso": "^1.2.0",
     "@babel/cli": "^7.10.4",
     "@babel/core": "^7.10.4",
     "@babel/plugin-proposal-class-properties": "^7.10.4",
@@ -27,5 +27,11 @@
   },
   "devDependencies": {
     "jest": "^26.1.0"
+  },
+  "resolutions": {
+    "@babel/traverse": "7.23.2",
+    "form-data": "2.5.5",
+    "json-schema": "0.4.0",
+    "minimist": "1.2.8"
   }
 }
